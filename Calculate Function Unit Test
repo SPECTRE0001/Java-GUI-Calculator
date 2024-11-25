@@ -1,0 +1,46 @@
+//Unit tests for calculate
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class MainFrameTest {
+//test addition
+@Test
+public void addTest() {
+    float result = MainFrame.calculate(2,3, '+');
+    assertEquals(result, 5);
+}
+//test addition for positive result
+@Test
+public void subtractPositiveTest() {
+    float result = MainFrame.calculate(3, 2, '-');
+    assertEquals(result, 1);
+}
+//test subtract to get negative result
+@Test
+public void subtractNegativeTest() {
+    float result = MainFrame.calculate(2, 3, '-');
+    assertEquals(result, -1);
+}
+//test for multiplication
+@Test
+public void multiplyTest() {
+    float result = MainFrame.calculate(3, 2, '*');
+    assertEquals(result, 6);
+}
+//test for division
+@Test
+public void divisionTest() {
+    float result = MainFrame.calculate(6, 2, '/');
+    assertEquals(result, 3);
+}
+//test for division by 0 by detecting arithmetic exception
+@Test
+public void divisionZeroTest() {
+    assertThrows(ArithmeticException.class, ()->MainFrame.calculate(6, 0, '/'));
+}
+//test for incorrect input by detecting illegal argument exception
+@Test
+public void invalidDataTest() {
+    assertThrows(IllegalArgumentException.class, ()->MainFrame.calculate(6,0,'y'));
+}
+}
