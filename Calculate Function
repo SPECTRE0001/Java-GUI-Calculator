@@ -1,0 +1,25 @@
+//This code is just to make the basic calculate function that will dictate all the arithmetic functions. 
+//Changes will be made in order to suit the input and output methods of the final product.
+public class MainFrame {
+    public static float calculate(float x, float y, char function) {
+//use switch to change between each function
+        switch (function) {
+            case '+':
+                return x + y;
+            case '-':
+                return x - y;
+            case '*':
+                return x * y;
+            case '/':
+                if (y != 0) {
+                    return x / y;
+//throw exception if division by 0 is done
+                } else {
+                    throw new ArithmeticException("Division by zero is not allowed");
+                }
+//throw exception if the char is wrong
+            default:
+                throw new IllegalArgumentException("Invalid function");
+        }
+    }
+}
