@@ -1,25 +1,28 @@
-//This code is just to make the basic calculate function that will dictate all the arithmetic functions. 
-//Changes will be made in order to suit the input and output methods of the final product.
-public class MainFrame {
-    public static float calculate(float x, float y, char function) {
-//use switch to change between each function
+//function that returns result from a function of two numbers
+public class Calculate {
+    public static double calculate(double x, double y, String function) {
         switch (function) {
-            case '+':
+//four function and exponents            
+            case "+":
                 return x + y;
-            case '-':
+            case "-":
                 return x - y;
-            case '*':
+            case "*":
                 return x * y;
-            case '/':
+            case "/":
+//return exception if 0 is divided by 0                
                 if (y != 0) {
                     return x / y;
-//throw exception if division by 0 is done
                 } else {
                     throw new ArithmeticException("Division by zero is not allowed");
                 }
-//throw exception if the char is wrong
+//exponent function                
+            case "^":
+                return Math.pow(x,y);
+//throw exception if error is wrong                
             default:
                 throw new IllegalArgumentException("Invalid function");
         }
     }
 }
+
