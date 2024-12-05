@@ -1,46 +1,51 @@
-//Unit tests for calculate
+//unit tests for calculate function
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class MainFrameTest {
-//test addition
+class CalculateTest {
+//test addition test
 @Test
 public void addTest() {
-    float result = MainFrame.calculate(2,3, '+');
+    double result = Calculate.calculate(2,3, "+");
     assertEquals(result, 5);
 }
-//test addition for positive result
+//test for positive result subtraction test
 @Test
 public void subtractPositiveTest() {
-    float result = MainFrame.calculate(3, 2, '-');
+    double result = Calculate.calculate(3, 2, "-");
     assertEquals(result, 1);
 }
-//test subtract to get negative result
+//test for negative result subtraction test
 @Test
 public void subtractNegativeTest() {
-    float result = MainFrame.calculate(2, 3, '-');
+    double result = Calculate.calculate(2, 3, "-");
     assertEquals(result, -1);
 }
 //test for multiplication
 @Test
 public void multiplyTest() {
-    float result = MainFrame.calculate(3, 2, '*');
+    double result = Calculate.calculate(3, 2, "*");
     assertEquals(result, 6);
 }
 //test for division
 @Test
 public void divisionTest() {
-    float result = MainFrame.calculate(6, 2, '/');
+    double result = Calculate.calculate(6, 2, "/");
     assertEquals(result, 3);
 }
-//test for division by 0 by detecting arithmetic exception
+//test for exponent result
+@Test public void exponentTest() {
+    double result = Calculate.calculate(2,3,"^");
+    assertEquals(result, 8);
+}
+//test division error over 0/0
 @Test
 public void divisionZeroTest() {
-    assertThrows(ArithmeticException.class, ()->MainFrame.calculate(6, 0, '/'));
+    assertThrows(ArithmeticException.class, ()->Calculate.calculate(6, 0, "/"));
 }
-//test for incorrect input by detecting illegal argument exception
+//test that an exception thrown for invalid function
 @Test
 public void invalidDataTest() {
-    assertThrows(IllegalArgumentException.class, ()->MainFrame.calculate(6,0,'y'));
+    assertThrows(IllegalArgumentException.class, ()->Calculate.calculate(6,0,"y"));
 }
 }
