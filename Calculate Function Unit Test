@@ -33,15 +33,27 @@ public void divisionTest() {
     double result = Calculate.calculate(6, 2, "/");
     assertEquals(result, 3);
 }
-//test for exponent result
-@Test public void exponentTest() {
-    double result = Calculate.calculate(2,3,"^");
-    assertEquals(result, 8);
-}
 //test division error over 0/0
 @Test
 public void divisionZeroTest() {
     assertThrows(ArithmeticException.class, ()->Calculate.calculate(6, 0, "/"));
+}
+//test for exponent result
+@Test
+public void exponentTest() {
+    double result = Calculate.calculate(2,3,"^");
+    assertEquals(result, 8);
+}
+//test for square root result
+@Test
+public void sqrtTest() {
+    double result = Calculate.calculate(4,0,"√");
+    assertEquals(result,2);
+}
+//test for square root exception
+@Test
+public void sqrtExceptionTest() {
+    assertThrows(IllegalArgumentException.class, ()->Calculate.calculate(-4,0,"√"));
 }
 //test that an exception thrown for invalid function
 @Test
