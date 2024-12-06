@@ -2,7 +2,7 @@
 public class Calculate {
     public static double calculate(double x, double y, String function) {
         switch (function) {
-//four function and exponents            
+//four function and exponents
             case "+":
                 return x + y;
             case "-":
@@ -10,19 +10,25 @@ public class Calculate {
             case "*":
                 return x * y;
             case "/":
-//return exception if 0 is divided by 0                
+//return exception if 0 is divided by 0
                 if (y != 0) {
                     return x / y;
                 } else {
                     throw new ArithmeticException("Division by zero is not allowed");
                 }
-//exponent function                
+//exponent function
             case "^":
                 return Math.pow(x,y);
-//throw exception if error is wrong                
+//square root function
+            case "√":
+                if (x >= 0) {
+                    return Math.sqrt(x);
+                } else {
+                    throw new IllegalArgumentException("Negative number square roots are not allowed.");
+                }
+//throw exception if error is wrong
             default:
                 throw new IllegalArgumentException("Invalid function");
         }
     }
 }
-
